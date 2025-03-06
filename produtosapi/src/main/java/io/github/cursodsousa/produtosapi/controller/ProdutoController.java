@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+
+//diz ao spring que que essa classe é um controlador rest
 @RestController
-@RequestMapping("produtos")
+@RequestMapping("produtos") // caminho base do controller, url base
 public class ProdutoController {
 
     private ProdutoRepository produtoRepository;
