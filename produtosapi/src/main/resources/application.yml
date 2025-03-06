@@ -6,7 +6,7 @@ spring:
     username: sa
     password: password
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.H2Dialect  # Fala para o spring o sql usado
   h2:
     console:
       enabled: true
