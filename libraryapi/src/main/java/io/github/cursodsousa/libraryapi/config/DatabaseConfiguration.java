@@ -14,18 +14,18 @@ import javax.sql.DataSource;
 @Slf4j
 public class DatabaseConfiguration {
 
-    @Value("${spring.datasource.url}")
+    @Value("${spring.datasource.url}") //pega o properties
     String url;
-    @Value("${spring.datasource.username}")
+    @Value("${spring.datasource.username}") //pega o properties
     String username;
-    @Value("${spring.datasource.password}")
+    @Value("${spring.datasource.password}") //pega o properties
     String password;
-    @Value("${spring.datasource.driver-class-name}")
+    @Value("${spring.datasource.driver-class-name}") //pega o properties
     String driver;
 
-//    @Bean
+//    @Bean esse dataSource nao é otimizada para usar em produção, ele quebra com mutios dados
     public DataSource dataSource(){
-        DriverManagerDataSource ds = new DriverManagerDataSource();
+        DriverManagerDataSource ds = new DriverManagerDataSource(); // um aimplamentação do spring de datasource
         ds.setUrl(url);
         ds.setUsername(username);
         ds.setPassword(password);
@@ -38,23 +38,25 @@ public class DatabaseConfiguration {
      * https://github.com/brettwooldridge/HikariCP
      * @return
      */
-    @Bean
+    @Bean //tem um input de coneções, aumenta e diminui dependendo da demanda
     public DataSource hikariDataSource(){
 
         log.info("Iniciando conexão com o banco na URL: {}", url);
 
+        //configuração basica
         HikariConfig config = new HikariConfig();
         config.setUsername(username);
         config.setPassword(password);
         config.setDriverClassName(driver);
         config.setJdbcUrl(url);
 
+        //configurações avançadas
         config.setMaximumPoolSize(10); // maximo de conexões liberadas
         config.setMinimumIdle(1); // tamanho inicial do pool
-        config.setPoolName("library-db-pool");
-        config.setMaxLifetime(600000); // 600 mil ms (10 minutos)
+        config.setPoolName("library-db-pool"); //nome do pool que vai aaparecer no log
+        config.setMaxLifetime(600000); // 600 mil ms (10 minutos) dura 10 minutos a conecção
         config.setConnectionTimeout(100000); // timeout para conseguir uma conexão
-        config.setConnectionTestQuery("select 1"); // query de teste
+        config.setConnectionTestQuery("select 1"); // query de teste para ver se o banco ta on
 
         return new HikariDataSource(config);
     }

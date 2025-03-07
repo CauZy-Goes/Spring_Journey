@@ -11,7 +11,7 @@ spring:
     url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/library}
     username: ${DATASOURCE_USERNAME:postgres}
     password: ${DATASOURCE_PASSWORD:postgres}
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: org.postgresql.Driver #conectar ao driver
   jpa:
     show-sql: true
     hibernate:
