@@ -2,6 +2,7 @@ package io.github.cursodsousa.arquiteturaspring.montadora.configuration;
 
 import io.github.cursodsousa.arquiteturaspring.montadora.Motor;
 import io.github.cursodsousa.arquiteturaspring.montadora.TipoMotor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -14,7 +15,7 @@ public class MontadoraConfiguration {
     //cria um objeto que pode ser atualizado
     @Bean(name = "motorAspirado")
     @Scope("singleton")
-    public Motor motorAspirado(){
+    public Motor motorAspirado(@Value("${app.montadora.motor-padrao}") Integer Cavalos){
         var motor = new Motor();
         motor.setCavalos(120);
         motor.setCilindros(4);

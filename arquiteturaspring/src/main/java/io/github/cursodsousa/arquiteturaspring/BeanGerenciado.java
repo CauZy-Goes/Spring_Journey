@@ -9,13 +9,15 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-//@Lazy(false)
+//@Scope("singleton") padrao uma unica aplicação, nao preciso criar varias instancias
+//@Lazy(false) so é instanciado quando é utilizado
 @Component
-@Scope(BeanDefinition.SCOPE_SINGLETON)
+@Scope(BeanDefinition.SCOPE_SINGLETON) // uso a singleton, enum.
+// Scope Prototipe contratio do singleton, cria instacias
 //@Scope(WebApplicationContext.SCOPE_APPLICATION)
-//@Scope("request")
-//@Scope("session")
-//@Scope("application")
+//@Scope("request") app web = so sobrevive na requisição, exclui no fim da requisição
+//@Scope("session") app web = existe enquanto dura a aplicação/sessao
+//@Scope("application") so serve em web = fica na sessao de todos os usuarios
 public class BeanGerenciado {
 
     private String idUsuarioLogado;
