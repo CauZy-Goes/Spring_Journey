@@ -2,6 +2,7 @@ package io.github.cursodsousa.arquiteturaspring.todos;
 
 import org.springframework.stereotype.Component;
 
+//Pai dos beans -> service, repository
 @Component
 public class TodoValidator {
 

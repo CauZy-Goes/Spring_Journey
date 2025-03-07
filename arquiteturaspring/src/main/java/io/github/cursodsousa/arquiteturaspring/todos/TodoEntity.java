@@ -8,7 +8,7 @@ public class TodoEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //serial, joga a reponsa para o banco
     private Integer id;
 
     @Column(name = "descricao")

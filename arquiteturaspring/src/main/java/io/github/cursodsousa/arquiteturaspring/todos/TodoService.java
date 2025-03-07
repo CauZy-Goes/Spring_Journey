@@ -2,13 +2,14 @@ package io.github.cursodsousa.arquiteturaspring.todos;
 
 import org.springframework.stereotype.Service;
 
-@Service
+@Service //define como bean service
 public class TodoService {
 
     private TodoRepository repository;
     private TodoValidator validator;
     private MailSender mailSender;
 
+    //Injeta pelo contructor automaticamente, o SPRING VERIFICA NO BANCO SE ESSES CARAS EXISTEM
     public TodoService(TodoRepository todoRepository,
                        TodoValidator validator,
                        MailSender mailSender){
