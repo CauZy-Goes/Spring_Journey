@@ -18,7 +18,9 @@ public class Application {
 		SpringApplicationBuilder builder =
 				new SpringApplicationBuilder(Application.class);
 
+		//Tira o banner
 		builder.bannerMode(Banner.Mode.OFF);
+
 		builder.profiles("producao", "homologacao");
 //		builder.lazyInitialization(true);
 
@@ -29,8 +31,9 @@ public class Application {
 		ConfigurableApplicationContext applicationContext = builder.context();
 //		var produtoRepository = applicationContext.getBean("produtoRepository");
 
-
+		// pega um objeto di
 		ConfigurableEnvironment environment = applicationContext.getEnvironment();
+		// pega do preperties
 		String applicationName = environment.getProperty("spring.application.name");
 		System.out.println("Nome da aplicação: " + applicationName);
 
