@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/carros")
 public class TesteFabricaController {
 
-    @Autowired
-    @Eletrico
+    @Autowired //INSTANCIADOR, VAI NO CONTAINER O DO SPPRING E PEGA
+//    @Qualifier("eletrico") tb funciona  fala o nome do bean especifco, existem varios motores
+    @Eletrico // FALA QUE QUER O ELETRICO
     private Motor motor;
 
     @PostMapping

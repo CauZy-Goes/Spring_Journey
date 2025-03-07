@@ -7,9 +7,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 
-@Configuration
+//faz definições beans, diz vai ter beans que vao ter que ser configurados
+@Configuration // PRECISA PARA QUE O SPRING SCAN SCANNEIE ESSA CLASSE
 public class MontadoraConfiguration {
 
+    //cria um objeto que pode ser atualizado
     @Bean(name = "motorAspirado")
     @Scope("singleton")
     public Motor motorAspirado(){
@@ -33,7 +35,7 @@ public class MontadoraConfiguration {
         return motor;
     }
 
-    @Primary
+    @Primary // BEAN MOTOR PADRAO = BEAN PRIMERY, MSM SEM QUALIFIER É ELE/ DEFAULT
     @Bean(name = "motorTurbo")
     public Motor motorTurbo(){
         var motor = new Motor();

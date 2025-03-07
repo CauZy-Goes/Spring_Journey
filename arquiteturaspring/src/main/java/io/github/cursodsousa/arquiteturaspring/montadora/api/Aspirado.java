@@ -7,8 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.METHOD})
-@Qualifier("motorAspirado")
-public @interface Aspirado {
+@Retention(RetentionPolicy.RUNTIME) //PADRAO
+@Target({ElementType.FIELD, ElementType.METHOD}) // ALVO TIPOS E METHODS, METHODOS E VARIAVEIS
+@Qualifier("motorAspirado") // COLOQUEI O QUALIFIER AQUI, AGREGAÇÃO DE ANNOTATION
+public @interface Aspirado { //  TODOS OS ELEMENTOS ANOTADOS COM ESSE BEAN SERAO ANOTADOS PELOS ACIMA
 }
