@@ -37,6 +37,9 @@ public class TransacaoService {
         // livro.setNomeArquivoFoto(id + ".png");
     }
 
+//    - Ele pega a entidade do banco de dados vira managed, quando acaba o transactional ele
+//    salva automaticamente pq é managed.
+//    - Banco De Dados → Managed → Fecha o Transctional → flush no banco
     @Transactional
     public void atualizacaoSemAtualizar(){
         var livro = livroRepository
