@@ -81,13 +81,13 @@ public interface LivroRepository extends JpaRepository<Livro, UUID>, JpaSpecific
     @Query("select l from Livro l where l.genero = ?2 order by ?1 ")
     List<Livro> findByGeneroPositionalParameters(String nomePropriedade, GeneroLivro generoLivro);
 
-    @Modifying
-    @Transactional
+    @Modifying //PRECISA PARA FAZER OPERAÇÕES NO REPOSITORY
+    @Transactional // TRANSAÇÃO NO BANCO
     @Query(" delete from Livro where genero = ?1 ")
     void deleteByGenero(GeneroLivro genero);
 
-    @Modifying
-    @Transactional
+    @Modifying //PRECISA PARA FAZER OPERAÇÕES NO REPOSITORY
+    @Transactional // TRANSAÇÃO NO BANCO
     @Query(" update Livro set dataPublicacao = ?1 ")
     void updateDataPublicacao(LocalDate novaData);
 
