@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "livro")
-@Data
+@Data //usa getter a e setter, hashCode e equals, contructor com elementos com finals e to string
 @ToString(exclude = "autor")
 @EntityListeners(AuditingEntityListener.class)
 public class Livro {
@@ -33,12 +33,12 @@ public class Livro {
     @Column(name = "data_publicacao")
     private LocalDate dataPublicacao;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) // enum tipo,
     @Column(name = "genero", length = 30, nullable = false)
-    private GeneroLivro genero;
+    private GeneroLivro genero; // enum
 
-    @Column(name = "preco", precision = 18, scale = 2)
-    private BigDecimal preco;
+    @Column(name = "preco", precision = 18, scale = 2) //18 posicoes e mapeia duas 9999999999,00
+    private BigDecimal preco; //dinheiro - valores grandes o scale
 
     @ManyToOne(
 //            cascade = CascadeType.ALL,

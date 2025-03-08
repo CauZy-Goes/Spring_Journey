@@ -13,10 +13,10 @@ spring:
     password: ${DATASOURCE_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver #conectar ao driver
   jpa:
-    show-sql: true
+    show-sql: true #mostra o SQL
     hibernate:
 #      ddl-auto: update
-      ddl-auto: none
+      ddl-auto: none #nao gera nada, update = modifica, create-drop = cria e no fim mata
     properties:
       hibernate.format_sql: true
   security:

@@ -15,24 +15,24 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "autor", schema = "public")
-@Getter
-@Setter
+@Getter //geras os gettes
+@Setter // gerar o stter em compilaçao
 @ToString(exclude = {"livros"})
 @EntityListeners(AuditingEntityListener.class)
 public class Autor {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID) //gera automaticamente o UUID
     private UUID id;
 
-    @Column(name = "nome", length = 100, nullable = false)
+    @Column(name = "nome", length = 100, nullable = false) // 100 posoções, nao pode ser null
     private String nome;
 
-    @Column(name = "data_nascimento", nullable = false)
+    @Column(name = "data_nascimento", nullable = false) // nao pode ser null
     private LocalDate dataNascimento;
 
-    @Column(name = "nacionalidade", length = 50, nullable = false)
+    @Column(name = "nacionalidade", length = 50, nullable = false)// 50 posoções, nao pode ser null
     private String nacionalidade;
 
     @OneToMany(mappedBy = "autor", fetch = FetchType.LAZY
