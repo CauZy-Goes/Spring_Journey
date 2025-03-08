@@ -15,7 +15,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "livro")
 @Data //usa getter a e setter, hashCode e equals, contructor com elementos com finals e to string
-@ToString(exclude = "autor")
+@ToString(exclude = "autor") // tira autor pq é lazy, da erro
 @EntityListeners(AuditingEntityListener.class)
 public class Livro {
 
@@ -41,7 +41,7 @@ public class Livro {
     private BigDecimal preco; //dinheiro - valores grandes o scale
 
     @ManyToOne(
-//            cascade = CascadeType.ALL,
+//            cascade = CascadeType.ALL, All = Todos,
         fetch = FetchType.LAZY
     )
     @JoinColumn(name = "id_autor")

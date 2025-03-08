@@ -17,7 +17,7 @@ import java.util.UUID;
 @Table(name = "autor", schema = "public")
 @Getter //geras os gettes
 @Setter // gerar o stter em compilaçao
-@ToString(exclude = {"livros"})
+@ToString(exclude = {"livros"}) //tirar livros da impressao do toString
 @EntityListeners(AuditingEntityListener.class)
 public class Autor {
 

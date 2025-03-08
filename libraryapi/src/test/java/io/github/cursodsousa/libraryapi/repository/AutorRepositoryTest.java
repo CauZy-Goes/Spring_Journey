@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@SpringBootTest
+@SpringBootTest //executa no contexto de testes
 public class AutorRepositoryTest {
 
     @Autowired
@@ -24,7 +24,7 @@ public class AutorRepositoryTest {
     @Autowired
     LivroRepository livroRepository;
 
-    @Test
+    @Test //fazer testes
     public void salvarTest(){
         Autor autor = new Autor();
         autor.setNome("José");
@@ -35,7 +35,7 @@ public class AutorRepositoryTest {
         System.out.println("Autor Salvo: " + autorSalvo);
     }
 
-    @Test
+    @Test //fazer testes
     public void atualizarTest(){
         var id = UUID.fromString("2449f4e4-ee1a-4a71-8aa3-e9d46306fe8a");
 
@@ -54,31 +54,31 @@ public class AutorRepositoryTest {
         }
     }
 
-    @Test
+    @Test //fazer testes
     public void listarTest(){
         List<Autor> lista = repository.findAll();
         lista.forEach(System.out::println);
     }
 
-    @Test
+    @Test //fazer testes
     public void countTest(){
         System.out.println("Contagem de autores: " + repository.count());
     }
 
-    @Test
+    @Test //fazer testes
     public void deletePorIdTest(){
         var id = UUID.fromString("2449f4e4-ee1a-4a71-8aa3-e9d46306fe8a");
         repository.deleteById(id);
     }
 
-    @Test
+    @Test //fazer testes
     public void deleteTest(){
         var id = UUID.fromString("abc082bf-1d23-4767-b3d9-9f322856ca6a");
         var maria = repository.findById(id).get();
         repository.delete(maria);
     }
 
-    @Test
+    @Test //fazer testes
     void salvarAutorComLivrosTest(){
         Autor autor = new Autor();
         autor.setNome("Antonio");
@@ -110,7 +110,7 @@ public class AutorRepositoryTest {
 //        livroRepository.saveAll(autor.getLivros());
     }
 
-    @Test
+    @Test //fazer testes
     void listarLivrosAutor(){
         var id = UUID.fromString("66c0d599-16d9-4edd-b8f8-7cac168eabb5");
         var autor = repository.findById(id).get();

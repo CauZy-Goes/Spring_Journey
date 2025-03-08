@@ -18,7 +18,7 @@ spring:
 #      ddl-auto: update
       ddl-auto: none #nao gera nada, update = modifica, create-drop = cria e no fim mata
     properties:
-      hibernate.format_sql: true
+      hibernate.format_sql: true ##identa o SQL
   security:
     oauth2:
       client:
