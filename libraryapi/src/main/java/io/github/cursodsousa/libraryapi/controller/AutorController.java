@@ -22,7 +22,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("autores")
+@RequestMapping("autores") //URI
 @RequiredArgsConstructor
 @Tag(name = "Autores")
 @Slf4j

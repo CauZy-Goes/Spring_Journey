@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Schema(name = "Autor")
-public record AutorDTO(
+public record AutorDTO( //Classe, Imutavel(so tem get), Simples; Ja vem com um contructor
         UUID id,
         @NotBlank(message = "campo obrigatorio")
         @Size(min = 2, max = 100, message = "campo fora do tamanho padrao")
