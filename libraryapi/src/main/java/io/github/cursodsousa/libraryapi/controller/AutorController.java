@@ -66,7 +66,7 @@ public class AutorController implements GenericController {
                 }).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // indempontente
+    // indempontente independente do doque vc faça a resposta sera a mesma
     @DeleteMapping("{id}")
     @PreAuthorize("hasRole('GERENTE')")
     @Operation(summary = "Deletar", description = "Deleta um autor existente")
@@ -96,7 +96,7 @@ public class AutorController implements GenericController {
             @ApiResponse(responseCode = "200", description = "Sucesso.")
     })
     public ResponseEntity<List<AutorDTO>> pesquisar(
-            @RequestParam(value = "nome", required = false) String nome,
+            @RequestParam(value = "nome", required = false) String nome, // required diz que poder ser null
             @RequestParam(value = "nacionalidade", required = false) String nacionalidade) {
 
         List<Autor> resultado = service.pesquisaByExample(nome, nacionalidade);
@@ -117,7 +117,7 @@ public class AutorController implements GenericController {
             @ApiResponse(responseCode = "409", description = "Autor já cadastrado.")
     })
     public ResponseEntity<Void> atualizar(
-            @PathVariable("id") String id, @RequestBody @Valid AutorDTO dto) {
+            @PathVariable("id") String id, @RequestBody @Valid AutorDTO dto) { // valida na entrada
 
         var idAutor = UUID.fromString(id);
         Optional<Autor> autorOptional = service.obterPorId(idAutor);

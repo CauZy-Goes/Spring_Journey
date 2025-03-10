@@ -17,7 +17,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor //cria um contrutor para os campos final
 public class AutorService {
 
     private final AutorRepository repository;
@@ -73,13 +73,19 @@ public class AutorService {
         autor.setNome(nome);
         autor.setNacionalidade(nacionalidade);
 
+        // Configura um ExampleMatcher para definir como os campos devem ser comparados
         ExampleMatcher matcher = ExampleMatcher
-                .matching()
-                .withIgnorePaths("id", "dataNascimento", "dataCadastro")
-                .withIgnoreNullValues()
-                .withIgnoreCase()
+                .matching() //define que a correspondência será baseada nos valores do objeto exemplo
+                .withIgnorePaths("id", "dataNascimento", "dataCadastro") //igora esses campos
+                .withIgnoreNullValues()// Ignora campos nulos no objeto exemplo
+                .withIgnoreCase()// Torna a busca case-insensitive (ignora maiúsculas e minúsculas)
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+                // Permite que o nome/nacionalidade contenham o valor buscado
+                //(equivalente a LIKE %valor%)
+        // Cria um objeto Example com base no autor e nas regras do matcher
         Example<Autor> autorExample = Example.of(autor, matcher);
+
+        // Realiza a busca no repositório com base no Example, retornando todos os registros que correspondem aos critérios
         return repository.findAll(autorExample);
     }
 
