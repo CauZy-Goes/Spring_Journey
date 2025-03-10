@@ -22,8 +22,8 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtGra
 import org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-@EnableWebSecurity
+@Configuration //arquivo de configiração
+@EnableWebSecurity // habilitou
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfiguration {
 
@@ -33,9 +33,10 @@ public class SecurityConfiguration {
             LoginSocialSuccessHandler successHandler,
             JwtCustomAuthenticationFilter jwtCustomAuthenticationFilter) throws Exception {
         return http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable) //Protege das paginas web, impede que outras aplicações
+                //consigam fazer requisição para esse backend
                 .formLogin(configurer -> {
-                    configurer.loginPage("/login");
+                    configurer.loginPage("/login"); //autenticação via form web, especifica a pagina do controller
                 })
                 .authorizeHttpRequests(authorize -> {
                     authorize.requestMatchers("/login/**").permitAll();
