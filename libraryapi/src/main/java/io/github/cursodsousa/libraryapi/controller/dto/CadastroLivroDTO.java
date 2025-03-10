@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public record CadastroLivroDTO(
-        @ISBN
+        @ISBN // verifica se é um ISBN
         @NotBlank(message = "campo obrigatorio")
         String isbn,
         @NotBlank(message = "campo obrigatorio")
