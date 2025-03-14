@@ -24,7 +24,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration //arquivo de configiração
 @EnableWebSecurity // habilitou
-@EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
+@EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true) //Habilita colocar barreiras de segura
+//nça nos controller
 public class SecurityConfiguration {
 
     @Bean

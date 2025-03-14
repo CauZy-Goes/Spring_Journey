@@ -26,7 +26,7 @@ public class LivroController implements GenericController {
     private final LivroMapper mapper;
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('OPERADOR', 'GERENTE')")
+    @PreAuthorize("hasAnyRole('OPERADOR', 'GERENTE')") //Regra de Acesso
     public ResponseEntity<Void> salvar(@RequestBody @Valid CadastroLivroDTO dto) {
         Livro livro = mapper.toEntity(dto);
         service.salvar(livro);

@@ -18,13 +18,14 @@ public class CustomUserDetailsService implements UserDetailsService {
         Usuario usuario = service.obterPorLogin(login);
 
         if(usuario == null){
-            throw new UsernameNotFoundException("Usuario não encontrado!");
+            throw new UsernameNotFoundException("Usuario não encontrado!"); //exceção
         }
 
-        return User.builder()
+        return User.builder() //user details
                 .username(usuario.getLogin())
                 .password(usuario.getSenha())
-                .roles(usuario.getRoles().toArray(new String[usuario.getRoles().size()]))
+                .roles(usuario.getRoles().toArray(new String[usuario.getRoles().size()])) // tranforma
+                // um array de string com o tamanho da lista
                 .build();
     }
 }
