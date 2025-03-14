@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Entity
 @Table
-@Data
+@Data //geter and setter
 public class Usuario {
 
     @Id
@@ -26,7 +26,7 @@ public class Usuario {
     @Column
     private String email;
 
-    @Type(ListArrayType.class)
+    @Type(ListArrayType.class)  //traduz o campo para o type class
     @Column(name = "roles", columnDefinition = "varchar[]")
     private List<String> roles;
 }

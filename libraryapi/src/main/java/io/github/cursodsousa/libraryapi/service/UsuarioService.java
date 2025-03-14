@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor //cria o contructoctors para os finals
 public class UsuarioService {
 
     private final UsuarioRepository repository;
@@ -15,7 +15,7 @@ public class UsuarioService {
 
     public void salvar(Usuario usuario){
         var senha = usuario.getSenha();
-        usuario.setSenha(encoder.encode(senha));
+        usuario.setSenha(encoder.encode(senha));//criptografa a senha e salva
         repository.save(usuario);
     }
 
