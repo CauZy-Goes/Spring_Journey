@@ -39,9 +39,19 @@ public class SecurityConfiguration {
                     configurer.loginPage("/login"); //autenticação via form web, especifica a pagina do controller
                 })
                 .authorizeHttpRequests(authorize -> {
+                    // Permite acesso irrestrito a qualquer requisição que comece com "/login/"
+                    // Isso significa que qualquer endpoint como "/login" ou "/login/reset"
+//                    pode ser acessado sem autenticação.
                     authorize.requestMatchers("/login/**").permitAll();
+
+                    // Permite requisições HTTP do tipo POST para endpoints que começam com "/
+                    //usuarios/"
+                    // Isso geralmente é utilizado para permitir que novos usuários se registrem
+                    //sem precisar estar autenticados.
                     authorize.requestMatchers(HttpMethod.POST, "/usuarios/**").permitAll();
 
+                    // Qualquer outra requisição que não se encaixe nas regras acima precisará
+                    //estar autenticada
                     authorize.anyRequest().authenticated();
                 })
                 .oauth2Login(oauth2 -> {
