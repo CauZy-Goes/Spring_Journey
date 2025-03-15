@@ -81,7 +81,7 @@ public class SecurityConfiguration {
     // CONFIGURA O PREFIXO ROLE
     @Bean
     public GrantedAuthorityDefaults grantedAuthorityDefaults(){
-        return new GrantedAuthorityDefaults("");
+        return new GrantedAuthorityDefaults(""); // passa por cima do padrao (ROLE_ +)
     }
 
     // CONFIGURA, NO TOKEN JWT, O PREFIXO SCOPE

@@ -31,7 +31,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         String senhaCriptografada = usuarioEncontrado.getSenha();
 
-        boolean senhamBatem = encoder.matches(senhaDigitada, senhaCriptografada);
+        boolean senhamBatem = encoder.matches(senhaDigitada, senhaCriptografada);//Verifica se as senhas batem
 
         if(senhamBatem){
             return new CustomAuthentication(usuarioEncontrado);
@@ -45,7 +45,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     }
 
     @Override
-    public boolean supports(Class<?> authentication) {
+    public boolean supports(Class<?> authentication) { //transforma no autentication em tipo especifico
         return authentication.isAssignableFrom(UsernamePasswordAuthenticationToken.class);
     }
 }
