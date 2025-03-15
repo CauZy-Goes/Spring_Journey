@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity // Configuração de web
 public class AuthorizationServerConfiguration {
 
     @Bean
@@ -62,7 +62,7 @@ public class AuthorizationServerConfiguration {
     }
 
     @Bean
-    public TokenSettings tokenSettings(){
+    public TokenSettings tokenSettings(){ //criando o token personalizado
         return TokenSettings.builder()
                 .accessTokenFormat(OAuth2TokenFormat.SELF_CONTAINED)
                 // access_token: token utilizado nas requisições
@@ -75,7 +75,7 @@ public class AuthorizationServerConfiguration {
     @Bean
     public ClientSettings clientSettings(){
         return ClientSettings.builder()
-                .requireAuthorizationConsent(false)
+                .requireAuthorizationConsent(false) //tela de consentimento do google
                 .build();
     }
 

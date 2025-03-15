@@ -34,7 +34,7 @@ public class CustomRegisteredClientRepository implements RegisteredClientReposit
             return null;
         }
 
-        return RegisteredClient
+        return RegisteredClient //construindo o client da authentication
                 .withId(client.getId().toString())
                 .clientId(client.getClientId())
                 .clientSecret(client.getClientSecret())
@@ -44,8 +44,8 @@ public class CustomRegisteredClientRepository implements RegisteredClientReposit
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .tokenSettings(tokenSettings)
-                .clientSettings(clientSettings)
+                .tokenSettings(tokenSettings) //tipo de token
+                .clientSettings(clientSettings) // tipo de client
                 .build();
     }
 }
