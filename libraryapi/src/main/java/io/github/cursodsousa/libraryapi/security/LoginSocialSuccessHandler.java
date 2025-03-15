@@ -32,6 +32,7 @@ public class LoginSocialSuccessHandler extends SavedRequestAwareAuthenticationSu
             HttpServletResponse response,
             Authentication authentication) throws ServletException, IOException {
 
+        // Transforma em oAuth2User para usar seus atributos
         OAuth2AuthenticationToken auth2AuthenticationToken = (OAuth2AuthenticationToken) authentication;
         OAuth2User oAuth2User = auth2AuthenticationToken.getPrincipal();
 
@@ -40,12 +41,12 @@ public class LoginSocialSuccessHandler extends SavedRequestAwareAuthenticationSu
         Usuario usuario = usuarioService.obterPorEmail(email);
 
         if(usuario == null){
-            usuario = cadastrarUsuarioNaBase(email);
+            usuario = cadastrarUsuarioNaBase(email); // se nao tiver no banco salva la
         }
 
-        authentication = new CustomAuthentication(usuario);
+        authentication = new CustomAuthentication(usuario); //escolhe a autenticaroon que a gente quer
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authentication); //adiciona no contexto
 
         super.onAuthenticationSuccess(request, response, authentication);
     }
@@ -55,16 +56,16 @@ public class LoginSocialSuccessHandler extends SavedRequestAwareAuthenticationSu
         usuario = new Usuario();
         usuario.setEmail(email);
 
-        usuario.setLogin(obterLoginApartirEmail(email));
+        usuario.setLogin(obterLoginApartirEmail(email)); //pega o login do email
 
         usuario.setSenha(SENHA_PADRAO);
-        usuario.setRoles(List.of("OPERADOR"));
+        usuario.setRoles(List.of("OPERADOR")); //cria uma lista de String com a role
 
         usuarioService.salvar(usuario);
         return usuario;
     }
 
     private String obterLoginApartirEmail(String email) {
-        return email.substring(0, email.indexOf("@"));
+        return email.substring(0, email.indexOf("@")); // pega do caracter 0 ate o @ e retorna
     }
 }
