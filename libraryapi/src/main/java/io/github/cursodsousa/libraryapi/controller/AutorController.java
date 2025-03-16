@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @RequestMapping("autores") //URI
 @RequiredArgsConstructor
 @Tag(name = "Autores") // nome da api no swagger
-@Slf4j
+@Slf4j //Habilita colocar logs na classe
 public class AutorController implements GenericController {
 
     private final AutorService service;
@@ -41,6 +41,12 @@ public class AutorController implements GenericController {
     })
     public ResponseEntity<Void> salvar(@RequestBody @Valid AutorDTO dto) {
         log.info("Cadastrando novo autor: {}", dto.nome());
+
+//        log.trace("Cadastrando novo autor: {}", dto.nome());
+//        log.debug("Cadastrando novo autor: {}", dto.nome());
+//        log.info("Cadastrando novo autor: {}", dto.nome());
+//        log.warn("Cadastrando novo autor: {}", dto.nome());
+//        log.erro("Cadastrando novo autor: {}", dto.nome());
 
         Autor autor = mapper.toEntity(dto);
         service.salvar(autor);
