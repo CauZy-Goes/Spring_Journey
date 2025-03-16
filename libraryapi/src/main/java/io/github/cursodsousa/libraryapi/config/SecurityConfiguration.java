@@ -66,8 +66,9 @@ public class SecurityConfiguration {
                 .build();
     }
 
-    @Bean
+    @Bean //ignorar algo para não passar pelo filter
     public WebSecurityCustomizer webSecurityCustomizer(){
+        //urls dos Swagger
         return web -> web.ignoring().requestMatchers(
                     "/v2/api-docs/**",
                     "/v3/api-docs/**",
