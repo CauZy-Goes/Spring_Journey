@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@OpenAPIDefinition(
+@OpenAPIDefinition( //swagger
         info = @Info(
                 title = "Library API",
                 version = "v1",
@@ -21,10 +21,10 @@ import org.springframework.context.annotation.Configuration;
                 )
         ),
         security = {
-                @SecurityRequirement(name = "bearerAuth")
+                @SecurityRequirement(name = "bearerAuth") //Authenticação bearer
         }
 )
-@SecurityScheme(
+@SecurityScheme( //configura o botão
         name = "bearerAuth",
         type = SecuritySchemeType.HTTP,
         bearerFormat = "JWT",

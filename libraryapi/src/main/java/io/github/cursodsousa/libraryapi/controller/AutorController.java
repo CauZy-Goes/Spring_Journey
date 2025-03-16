@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("autores") //URI
 @RequiredArgsConstructor
-@Tag(name = "Autores")
+@Tag(name = "Autores") // nome da api no swagger
 @Slf4j
 public class AutorController implements GenericController {
 
@@ -33,8 +33,8 @@ public class AutorController implements GenericController {
 
     @PostMapping
     @PreAuthorize("hasRole('GERENTE')")
-    @Operation(summary = "Salvar", description = "Cadastrar novo autor")
-    @ApiResponses({
+    @Operation(summary = "Salvar", description = "Cadastrar novo autor") // Swagger
+    @ApiResponses({ //Swagger
             @ApiResponse(responseCode = "201", description = "Cadastrado com sucesso."),
             @ApiResponse(responseCode = "422", description = "Erro de validação."),
             @ApiResponse(responseCode = "409", description = "Autor já cadastrado.")
@@ -50,8 +50,8 @@ public class AutorController implements GenericController {
 
     @GetMapping("{id}")
     @PreAuthorize("hasAnyRole('OPERADOR', 'GERENTE')")
-    @Operation(summary = "Obter Detalhes", description = "Retorna os dados do autor pelo ID")
-    @ApiResponses({
+    @Operation(summary = "Obter Detalhes", description = "Retorna os dados do autor pelo ID") //Swagger
+    @ApiResponses({ //Swagger
             @ApiResponse(responseCode = "200", description = "Autor encontrado."),
             @ApiResponse(responseCode = "404", description = "Autor não encontrado.")
     })
@@ -69,8 +69,8 @@ public class AutorController implements GenericController {
     // indempontente independente do doque vc faça a resposta sera a mesma
     @DeleteMapping("{id}")
     @PreAuthorize("hasRole('GERENTE')")
-    @Operation(summary = "Deletar", description = "Deleta um autor existente")
-    @ApiResponses({
+    @Operation(summary = "Deletar", description = "Deleta um autor existente") //Swagger
+    @ApiResponses({ //Swagger
             @ApiResponse(responseCode = "204", description = "Deletado com sucesso."),
             @ApiResponse(responseCode = "404", description = "Autor não encontrado."),
             @ApiResponse(responseCode = "400", description = "Autor possui livro cadastrado.")
@@ -91,6 +91,7 @@ public class AutorController implements GenericController {
 
     @GetMapping
     @PreAuthorize("hasAnyRole('OPERADOR', 'GERENTE')")
+    //Swagger
     @Operation(summary = "Pesquisar", description = "Realiza pesquisa de autores por parametros.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Sucesso.")
@@ -110,6 +111,7 @@ public class AutorController implements GenericController {
 
     @PutMapping("{id}")
     @PreAuthorize("hasRole('GERENTE')")
+    //Swagger
     @Operation(summary = "Atualizar", description = "Atualiza um autor existente")
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Atualizado com sucesso."),

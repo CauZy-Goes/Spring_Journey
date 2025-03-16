@@ -58,7 +58,7 @@ management:
 
 
 
-springdoc:
+springdoc: #Desabilita As Repostas Genéricas
   override-with-generic-response: false
 
 
