@@ -28,7 +28,7 @@ spring:
             client-secret: ${GOOGLE_CLIENT_SECRET}  #variaveis de ambiente
 
 logging:
-  pattern:
+  pattern: # Modifica a estrutura do log
     console: '%clr(%d{dd-MM-yyyy HH:mm:ss}){faint} %clr(%5p) %clr([%t]){faint} %clr(%-40.40logger){cyan} %clr(:){yellow} %m%n'
   file: #nome do arquivo
     name: app.log
@@ -48,13 +48,14 @@ logging:
 # warn
 # error
 
-management:
-  server:
+management: #Actuator
+  server: #Porta Diferente
     port: 9090
-  endpoints:
+  endpoints: # Mostrar todos os endPoints
     web:
       exposure:
         include: '*'
+        # include : beans, logfile...
 
 
 
