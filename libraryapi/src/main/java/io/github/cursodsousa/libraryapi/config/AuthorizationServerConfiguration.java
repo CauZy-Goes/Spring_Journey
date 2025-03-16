@@ -41,16 +41,19 @@ import java.util.UUID;
 public class AuthorizationServerConfiguration {
 
     @Bean
-    @Order(1)
+    @Order(1) // principal
     public SecurityFilterChain authServerSecurityFilterChain(HttpSecurity http) throws Exception {
 
-        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http); //Habilita
 
+        // puglin que permite eu consiga as infmorções de quem esta autenticado
         http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
                 .oidc(Customizer.withDefaults());
 
+        // Valida os tokens gerados pela aplicação
         http.oauth2ResourceServer(oauth2Rs -> oauth2Rs.jwt(Customizer.withDefaults()));
 
+        //se autentica via form de login
         http.formLogin(configurer -> configurer.loginPage("/login"));
 
         return http.build();
@@ -80,14 +83,18 @@ public class AuthorizationServerConfiguration {
     }
 
     // JWK - JSON Web Key
+    // Gera um token JWK
     @Bean
     public JWKSource<SecurityContext> jwkSource() throws Exception {
-        RSAKey rsaKey = gerarChaveRSA();
+        RSAKey rsaKey = gerarChaveRSA(); //chave para criar o jwk
         JWKSet jwkSet = new JWKSet(rsaKey);
         return new ImmutableJWKSet<>(jwkSet);
     }
 
     // Gerar par de chaves RSA
+    // metódo de criptografia
+    // chave publico criptografa
+    // cheave privada descriptografa a criptografia da publica
     private RSAKey gerarChaveRSA() throws Exception {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
         keyPairGenerator.initialize(2048);
@@ -103,9 +110,10 @@ public class AuthorizationServerConfiguration {
                 .build();
     }
 
+    //decodifica o token JWT
     @Bean
     public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource){
-        return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
+        return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource); //seta o jwtDecoder
     }
 
     @Bean

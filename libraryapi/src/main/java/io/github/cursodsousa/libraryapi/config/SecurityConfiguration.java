@@ -60,6 +60,7 @@ public class SecurityConfiguration {
                         .loginPage("/login")
                         .successHandler(successHandler);
                 })
+                // vai utilizar o jwt
                 .oauth2ResourceServer(oauth2RS -> oauth2RS.jwt(Customizer.withDefaults()))
                 .addFilterAfter(jwtCustomAuthenticationFilter, BearerTokenAuthenticationFilter.class)
                 .build();
@@ -85,13 +86,14 @@ public class SecurityConfiguration {
     }
 
     // CONFIGURA, NO TOKEN JWT, O PREFIXO SCOPE
+    // tirar o prefixo dos roles
     @Bean
     public JwtAuthenticationConverter jwtAuthenticationConverter(){
         var authoritiesConverter = new JwtGrantedAuthoritiesConverter();
-        authoritiesConverter.setAuthorityPrefix("");
+        authoritiesConverter.setAuthorityPrefix(""); // set o prefixo vazio
 
         var converter = new JwtAuthenticationConverter();
-        converter.setJwtGrantedAuthoritiesConverter(authoritiesConverter);
+        converter.setJwtGrantedAuthoritiesConverter(authoritiesConverter); // sobrepoen oque existe
 
         return converter;
     }
