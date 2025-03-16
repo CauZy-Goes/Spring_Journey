@@ -41,8 +41,11 @@ public class CustomRegisteredClientRepository implements RegisteredClientReposit
                 .redirectUri(client.getRedirectURI())
                 .scope(client.getScope())
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+                // login senha para gerar o token
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                // de api para api
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+                // Atualiza os token obtendo outro, so funciona quando esta autenticado
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .tokenSettings(tokenSettings) //tipo de token
                 .clientSettings(clientSettings) // tipo de client

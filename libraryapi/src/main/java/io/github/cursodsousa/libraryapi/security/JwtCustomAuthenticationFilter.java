@@ -27,13 +27,16 @@ public class JwtCustomAuthenticationFilter extends OncePerRequestFilter {
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
 
+        //pega a autenticação atual
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if(deveConverter(authentication)){
+        //
+        if(deveConverter(authentication)){ // converte de JWT AUth Para Custom Auth
             String login = authentication.getName();
             Usuario usuario = usuarioService.obterPorLogin(login);
             if(usuario != null){
                 authentication = new CustomAuthentication(usuario);
+                // seta como a custom a nova autentication
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         }
@@ -41,6 +44,7 @@ public class JwtCustomAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    //verifica se é um instacia de JWT AUTH para converter
     private boolean deveConverter(Authentication authentication){
         return authentication != null && authentication instanceof JwtAuthenticationToken;
     }

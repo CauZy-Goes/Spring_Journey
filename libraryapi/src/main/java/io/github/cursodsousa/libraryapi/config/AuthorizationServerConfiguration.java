@@ -116,7 +116,7 @@ public class AuthorizationServerConfiguration {
         return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource); //seta o jwtDecoder
     }
 
-    @Bean
+    @Bean //Configurando as url do token
     public AuthorizationServerSettings authorizationServerSettings(){
         return AuthorizationServerSettings.builder()
                 // obter token
@@ -136,16 +136,19 @@ public class AuthorizationServerConfiguration {
                 .build();
     }
 
-    @Bean
+    @Bean //Costomizando Tokken
     public OAuth2TokenCustomizer<JwtEncodingContext> tokenCustomizer(){
         return context -> {
-            var principal = context.getPrincipal();
+            var principal = context.getPrincipal(); //pega a autenticação
 
+            //verifica se é authenticationCustom
             if(principal instanceof CustomAuthentication authentication){
                 OAuth2TokenType tipoToken = context.getTokenType();
 
-                if(OAuth2TokenType.ACCESS_TOKEN.equals(tipoToken)){
+                if(OAuth2TokenType.ACCESS_TOKEN.equals(tipoToken)){ // Vê se é acess token
+
                     Collection<GrantedAuthority> authorities = authentication.getAuthorities();
+                    //faz uma lista de authorities
                     List<String> authoritiesList =
                             authorities.stream().map(GrantedAuthority::getAuthority).toList();
 
@@ -155,7 +158,6 @@ public class AuthorizationServerConfiguration {
                             .claim("email", authentication.getUsuario().getEmail());
                 }
             }
-
         };
     }
 }
