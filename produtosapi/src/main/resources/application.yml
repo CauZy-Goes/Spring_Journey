@@ -2,12 +2,26 @@ spring:
   application:
     name: Produtos API
   datasource:
-    url: jdbc:h2:mem:produtos
-    username: sa
-    password: password
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect  # Fala para o spring o sql usado
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/library} #variaveis de ambiente
+    username: ${DATASOURCE_USERNAME:postgres}  #variaveis de ambiente
+    password: ${DATASOURCE_PASSWORD:postgres}  #variaveis de ambiente
+    driver-class-name: org.postgresql.Driver #conectar ao driver
+    jpa:
+      show-sql: true #mostra o SQL
+      hibernate:
+              ddl-auto: update
+#        ddl-auto: none #nao gera nada, update = modifica, create-drop = cria e no fim mata
+      properties:
+        hibernate.format_sql: true #denta o SQ
+#  datasource:
+#    url: jdbc:h2:mem:produtosF
+#    username: sa
+#    password: password
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect  # Fala para o spring o sql usado
+
+
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
