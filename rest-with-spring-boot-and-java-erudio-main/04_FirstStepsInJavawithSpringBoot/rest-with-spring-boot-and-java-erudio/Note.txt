@@ -16,6 +16,19 @@ Spring Boot
 Spring Inicializer
 - cria projetos spring
 
+Mavem
+- 
+
 Grandle
 - abstração do mavem
 - camadas por cima
+
+static e templates
+- web
+- thymled
+
+application.properties = apliccation.yml
+- melhor usar yml por causa do docker e kubernetes que usam
+
+
+
