@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/person")
 public class PersonController {
 
-    @Autowired
+    @Autowired // injeção de dependencia
     private PersonServices service;
     // private PersonServices service = new PersonServices();
 

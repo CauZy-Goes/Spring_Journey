@@ -13,13 +13,15 @@ public class PersonServices {
 
     private final AtomicLong counter = new AtomicLong();
 
-    private Logger logger = Logger.getLogger(PersonServices.class.getName());
+    private Logger logger = Logger.getLogger(PersonServices.class.getName()); // criar um logger para essa classe
 
 //    Resumindo:
 //
 //    mock = objeto simulado para testes.
 //
 //    mockPerson = provavelmente um exemplo de objeto "Pessoa" criado para simular dados em um teste.
+//    estruturas de codigo que vcao ser usados temporariamente para simular comportamentos de um methodo pronto
+//    mockito, junit
 
     public List<Person> findAll() {
 
