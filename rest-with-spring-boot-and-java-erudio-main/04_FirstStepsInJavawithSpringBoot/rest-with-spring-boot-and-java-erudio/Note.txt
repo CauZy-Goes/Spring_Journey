@@ -17,11 +17,24 @@ Spring Inicializer
 - cria projetos spring
 
 Mavem
-- 
+- mavem procura
+- pom - project Object Model
+- busca as dependencias
+- mavem arquetipes
+- arquetipos maven
+
+Pasta Target
+- pasta do codigo compilados
+- gera o jar
+- o nome do jar é o nome do artifactID
+
+pom.xml
+-
 
 Grandle
 - abstração do mavem
 - camadas por cima
+- nao gera os arquetipos
 
 static e templates
 - web
