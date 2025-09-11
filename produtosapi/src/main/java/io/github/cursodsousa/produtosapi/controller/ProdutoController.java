@@ -25,7 +25,6 @@ public class ProdutoController {
 
         var id = UUID.randomUUID().toString();
         produto.setId(id);
-
         produtoRepository.save(produto);
         return produto;
     }
