@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.Date;
 
-@ControllerAdvice
+@ControllerAdvice // concentrar um tratamento global do controller adivice, formatando as exceções
 @RestController
 public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler {
 
@@ -21,7 +21,7 @@ public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler 
         ExceptionResponse response = new ExceptionResponse(
                 new Date(),
                 ex.getMessage(),
-                request.getDescription(false));
+                request.getDescription(false)); // descrição da response url que deu o erro
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -30,7 +30,7 @@ public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler 
         ExceptionResponse response = new ExceptionResponse(
                 new Date(),
                 ex.getMessage(),
-                request.getDescription(false));
+                request.getDescription(false)); // descrição da response url que deu o erro
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }
