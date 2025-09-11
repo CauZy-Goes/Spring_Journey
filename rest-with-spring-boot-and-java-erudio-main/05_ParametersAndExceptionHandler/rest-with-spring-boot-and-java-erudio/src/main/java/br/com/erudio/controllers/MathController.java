@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/math")
+@RequestMapping("/math") // coloca um caminho, todas as operações começão com /math
 public class MathController {
 
     private SimpleMath math = new SimpleMath();
 
     // http://localhost:8080/math/sum/3/5
     @RequestMapping("/sum/{numberOne}/{numberTwo}")
-    public Double sum(
+    public Double sum( // recebe dois numeros via o path
             @PathVariable("numberOne") String numberOne,
             @PathVariable("numberTwo") String numberTwo
     ) throws Exception {
-        if(!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo))
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
-        return math.sum(NumberConverter.convertToDouble(numberOne), NumberConverter.convertToDouble(numberTwo));
+        if(!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) // verifica se essa String é numerica
+            throw new UnsupportedMathOperationException("Please set a numeric value!"); // se nao for da erro
+        return math.sum(NumberConverter.convertToDouble(numberOne), NumberConverter.convertToDouble(numberTwo)); //
     }
 
     // http://localhost:8080/math/subtraction/3/5
