@@ -1,0 +1,17 @@
+Spring Framework
+- injeção de depencia
+- inversao de dependencias
+- modulorização
+- flexibildiade
+- facilidade
+
+Spring Boot
+- aplicações executáveis
+- configurar automaticamente as dependencias( jpa )
+- compatibildiade com mavem e gladle
+- starters
+- actuators (monitoramente continuo)
+- microservico
+
+Spring Inicializer
+- 
