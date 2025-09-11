@@ -13,8 +13,8 @@ public class NumberConverter {
     }
 
     public static boolean isNumeric(String strNumber) {
-        if (strNumber == null || strNumber.isEmpty()) return false;
+        if (strNumber == null || strNumber.isEmpty()) return false; // blanck or null
         String number = strNumber.replace(",", "."); // R$ 5,00 USD 5.00
-        return number.matches("[-+]?[0-9]*\\.?[0-9]+");
+        return number.matches("[-+]?[0-9]*\\.?[0-9]+"); // vai retornar false se tiver algo fora desses especificações REGEX
     }
 }
