@@ -15,13 +15,19 @@ public class PersonServices {
 
     private Logger logger = Logger.getLogger(PersonServices.class.getName());
 
+//    Resumindo:
+//
+//    mock = objeto simulado para testes.
+//
+//    mockPerson = provavelmente um exemplo de objeto "Pessoa" criado para simular dados em um teste.
+
     public List<Person> findAll() {
 
         logger.info("Finding all People!");
 
         List<Person> persons = new ArrayList<Person>();
         for (int i = 0; i < 8; i++) {
-            Person person = mockPerson(i);
+            Person person = mockPerson(i); // mockPerson = Objeto Simulador/ Mockar Simular
             persons.add(person);
         }
         return persons;
@@ -61,7 +67,7 @@ public class PersonServices {
 
 
 
-        private Person mockPerson(int i) {
+        private Person mockPerson(int i) { // ➡️ Aqui, mockPerson é só um objeto falso usado no teste, que simula o retorno do repositório.
             Person person = new Person();
             person.setId(counter.incrementAndGet());
             person.setFirstName("Firstname " + i);
