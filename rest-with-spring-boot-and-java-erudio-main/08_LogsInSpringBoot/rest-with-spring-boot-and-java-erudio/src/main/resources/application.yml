@@ -17,3 +17,8 @@ logging:
   level:
     # root: WARN
     br.com.erudio: DEBUG
+
+    # trace -> debug -> info -> warn -> error
+    # logs ajuda a descobrir oque esta acontecendom registram o erro e registram. acompanha o desempenho da produção
+#      ações preventidas, logs de debug em dev. e em prod erro e warn
+# ajuda bastante na comunicação
