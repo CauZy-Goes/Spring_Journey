@@ -14,9 +14,13 @@ public class Person implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    // identity incremetna de 1 em 1
+
 
     @Column(name = "first_name", nullable = false, length = 80)
     private String firstName;
+    // nao pode ser null, n pode percistir null, maximo de 80 caracteres
+
 
     @Column(name = "last_name", nullable = false, length = 80)
     private String lastName;
