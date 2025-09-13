@@ -15,8 +15,8 @@ spring:
     open-in-view: false
 logging: # log do spting boot = SLF4J => SIMPLE LOGGING FACADE FOR JAVA. LOGBACK EM CONJUNTO
   level:
-    # root: WARN
-    br.com.erudio: DEBUG
+    # root: WARN especifica o pcaote aplica para todo o sistema, o de baixo aplica so para o apcote
+    br.com.erudio: DEBUG # permite que debug apareçam, nivem de log detalhado. NAO RECOMENDADO EM RPOD POIS USAR RECURSOS. IDELA DE PRODUÇÃO WARN
 
     # trace -> debug -> info -> warn -> error
     # logs ajuda a descobrir oque esta acontecendom registram o erro e registram. acompanha o desempenho da produção
