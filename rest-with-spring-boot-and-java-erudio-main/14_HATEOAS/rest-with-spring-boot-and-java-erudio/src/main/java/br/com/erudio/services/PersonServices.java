@@ -42,7 +42,7 @@ public class PersonServices {
         var entity = repository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
         var dto =  parseObject(entity, PersonDTO.class);
-        addHateoasLinks(dto);
+        addHateoasLinks(dto); // adiciona link ao dto
         return dto;
     }
 
