@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/person/v1")
-@Tag(name = "People", description = "Endpoints for Managing People")
+@Tag(name = "People", description = "Endpoints for Managing People") // swagger
 public class PersonController implements PersonControllerDocs {
 
     @Autowired
