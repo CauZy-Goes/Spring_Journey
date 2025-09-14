@@ -1,0 +1,40 @@
+Migrations
+- Evolutionary Data Base Design
+- Versionamento de banco de dados
+- mudanças nos banco são migrations
+- padroniza as mudanças do banco
+- ferramenta de versionamento de banco de dados
+- migrations aplicadas automaticamente no banco de dados
+- V,U,R + version + __ description + .sql
+-  DUAS UNDERLINES
+- dentro de db.migration
+- cada migration com um código sql
+- dd-auto : none agora
+- erro se mudar a miragtion = cria outra versao no caso v3 ou apagando o banco
+
+- terminal
+- plugin do flyway no pom
+<groupId>org.flywaydb</groupId>
+<artifactId>flyway-maven-plugin</artifactId>
+<configuration>
+    <url>jdbc:mysql://localhost:3306/rest_with_spring_boot_erudio?useTimezone=true&amp;serverTimezone=UTC</url>
+    <user>root</user>
+    <password>admin123</password>
+</configuration>
+<dependencies>
+    <dependency>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
+        <version>9.1.0</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+            </exclusion>
+        </exclusions>
+
+    </dependency>
+</dependencies>
+
+- executa - mvm flyway:migrate
+- usado no servidor em ide
