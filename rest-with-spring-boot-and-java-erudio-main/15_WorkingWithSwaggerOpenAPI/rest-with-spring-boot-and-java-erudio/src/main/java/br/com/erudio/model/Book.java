@@ -20,7 +20,7 @@ public class Book implements Serializable {
     private String author;
 
     @Column(name = "launch_date", nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE) //campo de datas
     private Date launchDate;
 
     @Column(nullable = false)
