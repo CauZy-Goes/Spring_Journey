@@ -21,11 +21,11 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@ExtendWith(MockitoExtension.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS) // cilco de vida do junit, sepra a instancia
+@ExtendWith(MockitoExtension.class) // add o mockito
 class PersonServicesTest {
 
-    MockPerson input;
+    MockPerson input;  // mockador
 
     @InjectMocks
     private PersonServices service;

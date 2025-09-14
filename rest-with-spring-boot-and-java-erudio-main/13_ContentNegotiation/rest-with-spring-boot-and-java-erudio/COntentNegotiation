@@ -1,0 +1,16 @@
+Varias versoes de linguagens e arquivos
+-
+<dependency>
+    <groupId>com.fasterxml.jackson.dataformat</groupId>
+    <artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.dataformat</groupId>
+    <artifactId>jackson-dataformat-yaml</artifactId>
+</dependency>
+
+
+a maneira que a api enviar o arquivo, vc pode escolher o formato que ele retorna
+
+YML
+YAML Ain't Markup Language
