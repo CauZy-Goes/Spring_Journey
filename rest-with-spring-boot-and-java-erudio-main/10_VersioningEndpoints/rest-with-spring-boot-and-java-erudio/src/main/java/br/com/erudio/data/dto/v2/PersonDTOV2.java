@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+//versao 2 da api
+
 public class PersonDTOV2 implements Serializable {
 
     private static final long serialVersionUID = 1L;
