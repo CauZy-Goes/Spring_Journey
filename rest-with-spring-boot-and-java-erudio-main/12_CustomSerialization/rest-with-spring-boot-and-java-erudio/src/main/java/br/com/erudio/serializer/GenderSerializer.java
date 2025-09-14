@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class GenderSerializer extends JsonSerializer<String> {
 
+    // serializer personalizado
     @Override
     public void serialize(String gender, JsonGenerator gen,
           SerializerProvider serializers) throws IOException {

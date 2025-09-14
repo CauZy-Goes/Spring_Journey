@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ObjectMapperConfig {
 
+    // fala o campo que vc nao quer serializar. ex password
     @Bean
     public ObjectMapper objectMapper(){
         ObjectMapper mapper = new ObjectMapper();

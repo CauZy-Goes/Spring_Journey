@@ -16,31 +16,31 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-// @JsonPropertyOrder({"id", "address", "first_name", "last_name", "gender"})
-@JsonFilter("PersonFilter")
+// @JsonPropertyOrder({"id", "address", "first_name", "last_name", "gender"}) diz a ordem que sera serializados
+@JsonFilter("PersonFilter") // aplica o folter que a getn criou no ObjectMapperConfig, passa o nome do filtro que vc criou
 public class PersonDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Long id;
 
-    // @JsonProperty("first_name")
+    // @JsonProperty("first_name") muda o nome
     private String firstName;
 
-    // @JsonProperty("last_name")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    // @JsonProperty("last_name") muda o nome
+    @JsonInclude(JsonInclude.Include.NON_NULL) // se nao tiver null serializa
     private String lastName;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)// se nao tiver vazio serializa
     private String phoneNumber;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy") // formato da data
     private Date birthDay;
     private String address;
 
-    // @JsonIgnore
+    // @JsonIgnore ignora o senero
     @JsonSerialize(using = GenderSerializer.class)
-    private String gender;
+    private String gender; // serialzia com o serializador persinalizado
 
     private String sensitiveData;
 
