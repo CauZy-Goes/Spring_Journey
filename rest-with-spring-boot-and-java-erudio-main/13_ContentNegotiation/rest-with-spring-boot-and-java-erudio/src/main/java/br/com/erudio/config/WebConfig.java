@@ -5,7 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+@Configuration // classe de configuração do spring
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
@@ -26,7 +26,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .mediaType("xml", MediaType.APPLICATION_XML);
         */
 
-        // Via HEADER PARAM http://localhost:8080/api/person/v1/2
+        // Via HEADER PARAM http://localhost:8080/api/person/v1/2 MELHOR MANEIRA
         configurer.favorParameter(false)
             .ignoreAcceptHeader(false)
             .useRegisteredExtensionsOnly(false)
