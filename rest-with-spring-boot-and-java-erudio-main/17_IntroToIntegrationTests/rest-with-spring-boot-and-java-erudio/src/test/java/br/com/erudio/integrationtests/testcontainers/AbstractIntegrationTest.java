@@ -16,6 +16,7 @@ public class AbstractIntegrationTest {
 
     static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
+        //container mysql
         static MySQLContainer<?> mysql = new MySQLContainer<>("mysql:9.1.0");
 
         private static void startContainers() {
