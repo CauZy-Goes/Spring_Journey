@@ -1,0 +1,6 @@
+DOCKER
+- isola os ambientes isolados pelo KERNEL
+- Maquinas virtuais que nao necessitam de sistema operacional, usa na maquina hospedeira
+- sao mais leves que maquinas virtuais
+- feito em golang
+- docker images feitos pelos dockerfile
