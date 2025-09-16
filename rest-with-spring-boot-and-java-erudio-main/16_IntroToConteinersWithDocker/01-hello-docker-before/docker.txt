@@ -4,3 +4,10 @@ DOCKER
 - sao mais leves que maquinas virtuais
 - feito em golang
 - docker images feitos pelos dockerfile
+- docker deamon pega a image do docker home e coloca no container
+
+DockerFile
+- a ordem das informações importam importa
+- Dockerfile -> deve ser escrito assim
+- intruções de como construir a imagem
+- 
