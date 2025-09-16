@@ -1,0 +1,31 @@
+escolhe a jdk
+FROM eclipse-temurin:21-jdk
+
+tranfery tudo de target para -> app.jar
+COPY target/*.jar app.jar
+
+executa o java-jar no /app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+Para gerar o jar
+clean -> packge
+
+ou
+
+mvm clean package
+- cria o target
+- empacota
+
+subir imagem
+docoker build -t <nome do diretorio>
+
+mostra as imagens no local
+docker images / docker image ls
+
+
+subir a images no container
+docker run -p 80:80 -d <nome do diretorio>:<versao>
+-d libera o terminal
+
+mostra os container locais
+docker container ls / docker ps

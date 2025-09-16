@@ -10,4 +10,4 @@ DockerFile
 - a ordem das informações importam importa
 - Dockerfile -> deve ser escrito assim
 - intruções de como construir a imagem
-- 
+-
