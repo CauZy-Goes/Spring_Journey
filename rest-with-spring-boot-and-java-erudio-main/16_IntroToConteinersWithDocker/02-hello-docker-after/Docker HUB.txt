@@ -27,3 +27,14 @@ entra dentro do container
 
 docker pull <nome da imagem>
 - baixar a img
+
+docker search <img> --filter is--offical==true
+- pesquisa as omagens no docker hub
+
+CONTAINERS
+- docker container
+-- ls -a
+-- pause <nome>
+-- unpause <nome>
+--inspect <nome>
+--
