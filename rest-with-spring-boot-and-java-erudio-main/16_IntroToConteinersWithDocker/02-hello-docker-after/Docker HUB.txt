@@ -14,5 +14,16 @@ docker login docker.io
 mandando para docker hub
 docker push <img>
 
-rodando imagem
+rodando container
 docker -p <porta>:<porta> -d run <nome da imagem e versao>
+- d nao excuta o console do conteiner, nao ficando preso
+
+parando o container
+docker container stop <nome do container>
+
+mostrar os logs no container
+docker logs -f <id do container>
+entra dentro do container
+
+docker pull <nome da imagem>
+- baixar a img
