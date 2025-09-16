@@ -1,0 +1,18 @@
+Pegando outros containers
+
+CLIENTE | DOCKER HOST | REGISTRY(DOCKE HUB)
+dockcer pull, run, build | Docker Deamon verifica se tem no docker host o container ou a simagens necessarias | se nao tiver ele vai no docker hub e pega a imagem
+
+Enviando docker image
+- criando a tag par ficar no formato do docker hub
+
+docker tag <nome da imagem no docker host>:<versao> <nome final> ex cauzy/<nome da imagem no docker host>:<versao>
+
+LOGIN
+docker login docker.io
+
+mandando para docker hub
+docker push <img>
+
+rodando imagem
+docker -p <porta>:<porta> -d run <nome da imagem e versao>
