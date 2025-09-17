@@ -1,0 +1,4 @@
+- cros origin resourse shared
+- acessar outro dominio
+- cors define quem pode acessar
+- se vc colocar no postman o header = origin. da para testar
