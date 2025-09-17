@@ -2,3 +2,8 @@
 - acessar outro dominio
 - cors define quem pode acessar
 - se vc colocar no postman o header = origin. da para testar
+- pode configurar no controler, end point e global
+- properties
+cors:
+  originPatterns: http://localhost:8080,http://localhost:3000,https://www.erudio.com.br
+-

@@ -13,9 +13,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Value("${cors.originPatterns:default}")
     private String corsOriginPatterns = "";
 
+    // configurando o cors
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        var allowedOrigins = corsOriginPatterns.split(",");
+        var allowedOrigins = corsOriginPatterns.split(","); // split os endereços
         registry.addMapping("/**")
             .allowedOrigins(allowedOrigins)
             //.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
