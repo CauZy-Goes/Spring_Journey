@@ -1,0 +1,6 @@
+- Mais desempenho que o put
+- mudanças parciais
+- nao precisa do recurso inteiro
+- reduz trafego, menos disposição de dados
+- nao é idepotente, os resultados podem variar
+- repido e pontual
