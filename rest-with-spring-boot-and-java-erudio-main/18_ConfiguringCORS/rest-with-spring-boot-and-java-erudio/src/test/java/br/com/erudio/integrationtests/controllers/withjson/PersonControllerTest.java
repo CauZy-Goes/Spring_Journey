@@ -20,7 +20,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class) //roda na ordem, se nao é aleatorio
 class PersonControllerTest extends AbstractIntegrationTest {
 
     private static RequestSpecification specification;
@@ -41,7 +41,7 @@ class PersonControllerTest extends AbstractIntegrationTest {
     void create() throws JsonProcessingException {
         mockPerson();
 
-        specification = new RequestSpecBuilder()
+        specification = new RequestSpecBuilder() // app que vai fazer a request
             .addHeader(TestConfigs.HEADER_PARAM_ORIGIN, TestConfigs.ORIGIN_ERUDIO)
             .setBasePath("/api/person/v1")
             .setPort(TestConfigs.SERVER_PORT)
