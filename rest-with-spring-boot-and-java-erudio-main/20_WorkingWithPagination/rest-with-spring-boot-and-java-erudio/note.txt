@@ -1,0 +1,11 @@
+QUERRY PARAMS
+- Variáveis passadas pelo path =
+
+MOCKAROO
+- gerar mock
+- populart o banco com 1000 pessoas
+
+PAGINAÇÃO DE DADOS
+- melhora o desepenho
+- usa menos recursos
+- aumenta a velocidade
