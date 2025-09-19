@@ -22,17 +22,17 @@ public class FileStorageService {
 
     private static final Logger logger = LoggerFactory.getLogger(FileStorageService.class);
 
-    private final Path fileStorageLocation;
+    private final Path fileStorageLocation; // onde vamos armazenar a variavel
 
     @Autowired
     public FileStorageService(FileStorageConfig fileStorageConfig) {
-        Path path = Paths.get(fileStorageConfig.getUploadDir()).toAbsolutePath()
-                .toAbsolutePath().normalize();
+        Path path = Paths.get(fileStorageConfig.getUploadDir()).toAbsolutePath() // caminho para salvar
+                .toAbsolutePath().normalize(); // normaliza o caminho do arquivo
 
         this.fileStorageLocation = path;
         try {
             logger.info("Creating Directories");
-            Files.createDirectories(this.fileStorageLocation);
+            Files.createDirectories(this.fileStorageLocation); //cria o arquivo
         } catch (Exception e) {
             logger.error("Could not create the directory where files will be stored!");
             throw new FileStorageException("Could not create the directory where files will be stored!", e);
@@ -41,18 +41,18 @@ public class FileStorageService {
 
     public String storeFile(MultipartFile file) {
 
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename()); // pega o nome do arquivo e trata
 
         try {
-            if (fileName.contains("..")) {
+            if (fileName.contains("..")) { // evita o proble do ../
                 logger.error("Sorry! Filename Contains a Invalid path Sequence " + fileName);
                 throw new FileStorageException("Sorry! Filename Contains a Invalid path Sequence " + fileName);
             }
 
             logger.info("Saving file in Disk");
 
-            Path targetLocation = this.fileStorageLocation.resolve(fileName);
-            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+            Path targetLocation = this.fileStorageLocation.resolve(fileName); // onde vai ser salvo e o nome do arquivo
+            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING); // lugar que salva o arquivo. e da replace
             return fileName;
         } catch (Exception e) {
             logger.error("Could not store file " + fileName + ". Please try Again!");
