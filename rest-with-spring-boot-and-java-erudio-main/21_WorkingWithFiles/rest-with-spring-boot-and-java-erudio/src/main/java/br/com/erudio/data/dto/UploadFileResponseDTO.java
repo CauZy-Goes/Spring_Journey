@@ -3,6 +3,7 @@ package br.com.erudio.data.dto;
 import java.io.Serializable;
 import java.util.Objects;
 
+// dto de arquivo
 public class UploadFileResponseDTO  implements Serializable {
 
     private static final long serialVersionUID = 1L;
