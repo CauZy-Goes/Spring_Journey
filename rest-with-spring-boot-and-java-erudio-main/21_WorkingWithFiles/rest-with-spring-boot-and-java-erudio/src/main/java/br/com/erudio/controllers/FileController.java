@@ -45,7 +45,7 @@ public class FileController implements FileControllerDocs {
     @PostMapping("/uploadMultipleFiles")
     @Override
     public List<UploadFileResponseDTO> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
-        return Arrays.asList(files)
+        return Arrays.asList(files)// executa a classe a cima numero de vezes de arquivos
                 .stream()
                 .map(file -> uploadFile(file))
                 .collect(Collectors.toList());
