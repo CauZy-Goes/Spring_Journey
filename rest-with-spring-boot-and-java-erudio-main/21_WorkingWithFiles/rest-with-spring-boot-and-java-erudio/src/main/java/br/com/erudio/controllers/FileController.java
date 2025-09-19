@@ -53,21 +53,21 @@ public class FileController implements FileControllerDocs {
 
     @GetMapping("/downloadFile/{fileName:.+}")
     @Override
-    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) {
-        Resource resource = service.loadFileAsResource(fileName);
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) { // request vem automarico que nem token
+        Resource resource = service.loadFileAsResource(fileName); // pega o arquivo
         String contentType = null;
         try {
-            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath()); // pega o arquivo
         } catch (Exception e) {
             logger.error("Could not determine file type!");
         }
 
         if (contentType == null) {
-            contentType = "application/octet-stream";
+            contentType = "application/octet-stream"; // generico, tipo mais generico
         }
 
         return ResponseEntity.ok()
-            .contentType(MediaType.parseMediaType(contentType))
+            .contentType(MediaType.parseMediaType(contentType)) // manda o contettype
             .header(
                 HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=\"" + resource.getFilename() + "\"")
