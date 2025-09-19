@@ -9,3 +9,12 @@ PAGINAÇÃO DE DADOS
 - melhora o desepenho
 - usa menos recursos
 - aumenta a velocidade
+
+HAL
+- hypertex application text
+- formato padrao de esturars resposta rest ful
+- -links e _embedded
+- cria uma api mais auto explicativa
+- formato padronizado
+- guia navegável
+- auto explicativas, que forneça tanto dados e de como usar

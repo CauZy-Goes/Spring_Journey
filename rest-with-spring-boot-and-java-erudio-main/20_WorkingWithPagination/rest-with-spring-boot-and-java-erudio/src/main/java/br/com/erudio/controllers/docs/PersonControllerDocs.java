@@ -37,7 +37,7 @@ public interface PersonControllerDocs {
                     @ApiResponse(description = "Internal Server Error", responseCode = "500", content = @Content)
             }
     )
-    ResponseEntity<PagedModel<EntityModel<PersonDTO>>> findAll( //PagedModel retorna a busca paginada
+    ResponseEntity<PagedModel<EntityModel<PersonDTO>>> findAll( //PagedModel retorna a busca paginada || HALL
             @RequestParam(value = "page", defaultValue = "0") Integer page, // numero de paginas
             @RequestParam(value = "size", defaultValue = "12") Integer size, // numero de item por pagina
             @RequestParam(value = "direction", defaultValue = "asc") String direction // direção

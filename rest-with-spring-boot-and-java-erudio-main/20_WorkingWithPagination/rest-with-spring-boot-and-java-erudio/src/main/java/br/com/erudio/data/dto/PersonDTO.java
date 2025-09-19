@@ -6,7 +6,7 @@ import org.springframework.hateoas.server.core.Relation;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Relation(collectionRelation = "people")
+@Relation(collectionRelation = "people") // NOME DA DTO NO JSON
 public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable {
 
     private static final long serialVersionUID = 1L;
