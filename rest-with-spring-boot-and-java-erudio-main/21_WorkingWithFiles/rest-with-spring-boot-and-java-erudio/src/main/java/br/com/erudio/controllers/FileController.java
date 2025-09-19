@@ -31,15 +31,15 @@ public class FileController implements FileControllerDocs {
     @PostMapping("/uploadFile")
     @Override
     public UploadFileResponseDTO uploadFile(@RequestParam("file") MultipartFile file) {
-        var fileName = service.storeFile(file);
+        var fileName = service.storeFile(file); // nome do aequivo
 
         // http://localhost:8080/api/file/v1/downloadFile/filename.docx
-        var fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/api/file/v1/downloadFile/")
+        var fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()// constroi o path do dowload
+                .path("/api/file/v1/downloadFile/")// leva para o endpoint de controller
                 .path(fileName)
                 .toUriString();
 
-        return new UploadFileResponseDTO(fileName, fileDownloadUri, file.getContentType(), file.getSize());
+        return new UploadFileResponseDTO(fileName, fileDownloadUri, file.getContentType(), file.getSize()); // retorna o dto
     }
 
     @PostMapping("/uploadMultipleFiles")
