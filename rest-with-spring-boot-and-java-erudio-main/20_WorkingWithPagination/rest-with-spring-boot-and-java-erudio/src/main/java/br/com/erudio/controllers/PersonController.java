@@ -36,7 +36,7 @@ public class PersonController implements PersonControllerDocs {
             @RequestParam(value = "direction", defaultValue = "asc") String direction
     ) {
         var sortDirection = "desc".equalsIgnoreCase(direction) ? Direction.DESC : Direction.ASC;
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "firstName"));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "firstName")); // criando o pageable
         return ResponseEntity.ok(service.findAll(pageable));
     }
 

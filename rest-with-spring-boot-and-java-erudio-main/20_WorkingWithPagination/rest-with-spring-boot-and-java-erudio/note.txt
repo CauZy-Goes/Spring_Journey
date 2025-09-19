@@ -1,5 +1,5 @@
 QUERRY PARAMS
-- Variáveis passadas pelo path =
+- Variáveis passadas pelo path = /localhost?page=0?size=?directtion=asc
 
 MOCKAROO
 - gerar mock
