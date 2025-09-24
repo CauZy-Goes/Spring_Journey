@@ -1,1 +1,17 @@
 EXCEL
+- exporta e impota dados execel e csv
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>${commons-csv.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+- commons csv
+para csv
+
+- apache poi
+para excel acessa (microsoft files)
