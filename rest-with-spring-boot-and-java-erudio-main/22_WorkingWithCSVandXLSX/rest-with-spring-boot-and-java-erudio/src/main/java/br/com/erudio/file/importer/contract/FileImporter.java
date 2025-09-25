@@ -6,6 +6,6 @@ import java.io.InputStream;
 import java.util.List;
 
 public interface FileImporter {
-
+    // contrato de clase
     List<PersonDTO> importFile(InputStream inputStream) throws Exception;
 }

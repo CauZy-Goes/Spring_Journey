@@ -10,14 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component // poder injetar
 public class FileImporterFactory {
 
     private Logger logger = LoggerFactory.getLogger(FileImporterFactory.class);
 
+    // injeta o bean de forma dinámica
     @Autowired
     private ApplicationContext context;
 
+    //cria o importador, tano csv tanto execl
     public FileImporter getImporter(String fileName) throws Exception {
         if (fileName.endsWith(".xlsx")) {
             return context.getBean(XlsxImporter.class);
