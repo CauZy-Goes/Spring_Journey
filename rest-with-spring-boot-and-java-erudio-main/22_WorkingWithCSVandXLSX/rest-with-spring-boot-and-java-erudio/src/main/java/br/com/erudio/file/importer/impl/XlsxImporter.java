@@ -18,12 +18,12 @@ public class XlsxImporter implements FileImporter {
 
     @Override
     public List<PersonDTO> importFile(InputStream inputStream) throws Exception {
-
+        // pega o excel
         try (XSSFWorkbook workbook = new XSSFWorkbook(inputStream)) {
-            XSSFSheet sheet = workbook.getSheetAt(0);
-            Iterator<Row> rowIterator = sheet.iterator();
+            XSSFSheet sheet = workbook.getSheetAt(0); // pega a primeira planilha
+            Iterator<Row> rowIterator = sheet.iterator(); // cria o row iterator a partir da planilha
 
-            if (rowIterator.hasNext()) rowIterator.next();
+            if (rowIterator.hasNext()) rowIterator.next(); // se tiver proximo ele vai, a primeira é cabeçalho
 
             return parseRowsToPersonDtoList(rowIterator);
 
@@ -33,10 +33,10 @@ public class XlsxImporter implements FileImporter {
     private List<PersonDTO> parseRowsToPersonDtoList(Iterator<Row> rowIterator) {
         List<PersonDTO> people = new ArrayList<>();
 
-        while (rowIterator.hasNext()) {
+        while (rowIterator.hasNext()) { // enquanto tiver linha ele vai pegando a row e trabalhando em cima
             Row row = rowIterator.next();
             if (isRowValid(row)) {
-               people.add(parseRowToPersonDto(row));
+               people.add(parseRowToPersonDto(row)); // converte para dto e add na lista
             }
         }
         return people;
@@ -53,6 +53,6 @@ public class XlsxImporter implements FileImporter {
     }
 
     private static boolean isRowValid(Row row) {
-        return row.getCell(0) != null && row.getCell(0).getCellType() != CellType.BLANK;
+        return row.getCell(0) != null && row.getCell(0).getCellType() != CellType.BLANK; // verifica se a row é nula ou blanck
     }
 }
