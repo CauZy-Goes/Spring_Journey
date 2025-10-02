@@ -115,11 +115,12 @@ public class PersonServices {
 
         if (file.isEmpty()) throw new BadRequestException("Please set a Valid File!");
 
+        //pega o arquivo
         try(InputStream inputStream = file.getInputStream()){
-            String filename = Optional.ofNullable(file.getOriginalFilename())
+            String filename = Optional.ofNullable(file.getOriginalFilename()) // pega o nome do arquivo
                 .orElseThrow(() -> new BadRequestException("File name cannot be null"));
-            FileImporter importer = this.importer.getImporter(filename);
-
+            FileImporter importer = this.importer.getImporter(filename); // pega o importador de acordo com o tipo de arquivo, exel ou csv
+             // executa o importador e converte para entidade
             List<Person> entities = importer.importFile(inputStream).stream()
                 .map(dto -> repository.save(parseObject(dto, Person.class)))
                 .toList();
