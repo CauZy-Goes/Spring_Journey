@@ -18,15 +18,15 @@ public class CsvExporter implements FileExporter {
 
     @Override
     public Resource exportFile(List<PersonDTO> people) throws Exception {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        OutputStreamWriter writer = new OutputStreamWriter(outputStream, StandardCharsets.UTF_8);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); // cria o arquivo
+        OutputStreamWriter writer = new OutputStreamWriter(outputStream, StandardCharsets.UTF_8); // define o interpretador
 
-        CSVFormat csvFormat = CSVFormat.Builder.create()
-                .setHeader("ID", "First Name", "Last Name", "Address", "Gender", "Enabled")
+        CSVFormat csvFormat = CSVFormat.Builder.create() // define o formato do csv
+                .setHeader("ID", "First Name", "Last Name", "Address", "Gender", "Enabled") // cabeçalho
                 .setSkipHeaderRecord(false)
                 .build();
 
-        try (CSVPrinter csvPrinter = new CSVPrinter(writer, csvFormat)){
+        try (CSVPrinter csvPrinter = new CSVPrinter(writer, csvFormat)){ // cria o cara que cola as informações no csv
             for(PersonDTO person : people) {
                 csvPrinter.printRecord(
                     person.getId(),
