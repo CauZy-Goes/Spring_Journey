@@ -17,19 +17,19 @@ public class XlsxExporter implements FileExporter {
     @Override
     public Resource exportFile(List<PersonDTO> people) throws Exception {
         try (Workbook workbook = new XSSFWorkbook()){
-            Sheet sheet = workbook.createSheet("People");
+            Sheet sheet = workbook.createSheet("People"); // cria uma aba na planiha
 
             Row headerRow = sheet.createRow(0);
-            String[] headers = {"ID", "First Name", "Last Name", "Address", "Gender", "Enabled"};
+            String[] headers = {"ID", "First Name", "Last Name", "Address", "Gender", "Enabled"}; // cria os nomes do ehaders
             for (int i = 0; i < headers.length; i++) {
-                Cell cell = headerRow.createCell(i);
-                cell.setCellValue(headers[i]);
-                cell.setCellStyle(createHeaderCellStyle(workbook));
+                Cell cell = headerRow.createCell(i); // cria uma célula para cada header
+                cell.setCellValue(headers[i]); // seta o header dentro da célula
+                cell.setCellStyle(createHeaderCellStyle(workbook)); // define o estilo da célula
             }
 
             int rowIndex = 1;
             for (PersonDTO person : people) {
-                Row row = sheet.createRow(rowIndex++);
+                Row row = sheet.createRow(rowIndex++); // cria uma linha da planilha para cada usuario
                 row.createCell(0).setCellValue(person.getId());
                 row.createCell(1).setCellValue(person.getFirstName());
                 row.createCell(2).setCellValue(person.getLastName());
@@ -40,7 +40,7 @@ public class XlsxExporter implements FileExporter {
             }
 
             for (int i = 0; i < headers.length; i++) {
-                sheet.autoSizeColumn(i);
+                sheet.autoSizeColumn(i); //ajusta o tamanhos das colunas
             }
 
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -50,7 +50,7 @@ public class XlsxExporter implements FileExporter {
         }
     }
 
-    private CellStyle createHeaderCellStyle(Workbook workbook) {
+    private CellStyle createHeaderCellStyle(Workbook workbook) { //estilo do cabeçalho
         CellStyle style = workbook.createCellStyle();
         Font font = workbook.createFont();
         font.setBold(true);
