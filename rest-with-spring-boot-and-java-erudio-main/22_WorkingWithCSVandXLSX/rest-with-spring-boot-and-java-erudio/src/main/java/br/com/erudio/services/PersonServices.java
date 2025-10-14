@@ -76,6 +76,7 @@ public class PersonServices {
 
         logger.info("Exporting a People page!");
 
+        //pega as pessoas pela service de findall
         var people = repository.findAll(pageable)
             .map(person -> parseObject(person, PersonDTO.class))
             .getContent();
