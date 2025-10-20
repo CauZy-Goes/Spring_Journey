@@ -1,0 +1,21 @@
+Geração de relatórios Proficionais
+
+JasperReport
+- biblioteca de relatorios open souce. Desenvolvida em java
+- dpf, html, xls, csv, xml
+- LÓGICA DE GERAÇÃO
+
+JasperSoftStudio
+- IDE, do JasperReport
+- arrastar e soltar
+- importa dados de arquivos csv e banco de dados
+- DESIGN VISUAL E EDIÇÃO DE LAYOUTS
+
+Jasper
+- compila o JRXLM em relatório
+- se integra em vários frameworks do java
+- COMPILA E REDENRIZA
+
+JRXML
+- é base do relatório
+- BASE ESTRUTURAL
