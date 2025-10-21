@@ -65,7 +65,7 @@ public class PersonController implements PersonControllerDocs {
 
         Resource file = service.exportPage(pageable, acceptHeader);
 
-        Map<String, String> extensionMap = Map.of(
+        Map<String, String> extensionMap = Map.of( // esse map quarda os tipo de arquivos as serem expotados
             MediaTypes.APPLICATION_XLSX_VALUE, ".xlsx",
             MediaTypes.APPLICATION_CSV_VALUE, ".csv",
             MediaTypes.APPLICATION_PDF_VALUE, ".pdf"
