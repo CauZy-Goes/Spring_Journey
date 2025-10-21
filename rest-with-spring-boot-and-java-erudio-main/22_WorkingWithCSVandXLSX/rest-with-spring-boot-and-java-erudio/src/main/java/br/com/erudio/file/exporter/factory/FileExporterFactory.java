@@ -19,6 +19,8 @@ public class FileExporterFactory {
     @Autowired
     private ApplicationContext context;
 
+
+//    define qual exportar pelo accpeterherader
     public FileExporter getExporter(String acceptHeader) throws Exception {
         if (acceptHeader.equalsIgnoreCase(MediaTypes.APPLICATION_XLSX_VALUE)) {
             return context.getBean(XlsxExporter.class);
