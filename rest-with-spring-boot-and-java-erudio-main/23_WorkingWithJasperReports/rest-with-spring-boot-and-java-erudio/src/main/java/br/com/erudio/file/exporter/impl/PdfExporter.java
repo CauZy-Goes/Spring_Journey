@@ -25,14 +25,14 @@ public class PdfExporter implements PersonExporter {
 
     @Override
     public Resource exportPeople(List<PersonDTO> people) throws Exception {
-        InputStream inputStream = getClass().getResourceAsStream("/templates/people.jrxml");
+        InputStream inputStream = getClass().getResourceAsStream("/templates/people.jrxml"); // pega o JRXML
         if (inputStream == null) {
             throw new RuntimeException("Template file not found: /templates/people.jrxml");
         }
 
-        JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+        JasperReport jasperReport = JasperCompileManager.compileReport(inputStream); //Compila o imput Stream em JR
 
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(people);
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(people); // pega os dados do pessoas
         Map<String, Object> parameters = new HashMap<>();
         // parameters.put("title", "People Report");
 
