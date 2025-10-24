@@ -24,6 +24,9 @@ JRXML
 Templates guardam o JRXML
 
 
+
+
+
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
@@ -39,3 +42,16 @@ Templates guardam o JRXML
             <artifactId>jasperreports-pdf</artifactId>
             <version>${jasperreports.version}</version>
         </dependency>
+
+        QR CODE
+
+        		<dependency>
+        			<groupId>com.google.zxing</groupId>
+        			<artifactId>core</artifactId>
+        			<version>${zxing.version}</version>
+        		</dependency>
+        		<dependency>
+        			<groupId>com.google.zxing</groupId>
+        			<artifactId>javase</artifactId>
+        			<version>${zxing.version}</version>
+        		</dependency>

@@ -37,6 +37,8 @@ public class Person implements Serializable {
     @Column(name = "photo_url", length = 255)
     private String photoUrl;
 
+
+    //cria a tabela intermediária, eager = traz os dois juntos. traz os livros com a pessoa
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
          name = "person_books",
