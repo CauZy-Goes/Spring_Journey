@@ -23,7 +23,7 @@ JRXML
 
 Templates guardam o JRXML
 
-
+Parametrizando o rekat´roio
 
 
 
