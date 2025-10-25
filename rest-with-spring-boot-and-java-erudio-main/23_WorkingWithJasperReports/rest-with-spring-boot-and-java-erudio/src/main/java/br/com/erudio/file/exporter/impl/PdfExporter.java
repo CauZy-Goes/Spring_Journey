@@ -49,16 +49,19 @@ public class PdfExporter implements PersonExporter {
         if (mainTemplateStream == null) {
             throw new RuntimeException("Template file not found: /templates/person.jrxml");
         }
-
+        // sub relatorio e relatorio
         InputStream subReportStream = getClass().getResourceAsStream("/templates/books.jrxml");
         if (subReportStream == null) {
             throw new RuntimeException("Template file not found: /templates/books.jrxml");
         }
 
+        //compila os dois em jasper
         JasperReport mainReport = JasperCompileManager.compileReport(mainTemplateStream);
         JasperReport subReport = JasperCompileManager.compileReport(subReportStream);
 
+        // gera o qrcode
         InputStream qrCodeStream = service.generateQRCode(person.getProfileUrl(), 200, 200);
+
 
         JRBeanCollectionDataSource subReportDataSource = new JRBeanCollectionDataSource(person.getBooks());
 
